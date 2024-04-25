@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Appointment Form</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f0f5f9; /* Light blue */
+            margin: 0;
+            padding: 0;
+        }
+        
+        form {
+            max-width: 400px;
+            margin: 50px auto;
+            padding: 20px;
+            background-color: #fff;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            animation: slideIn 0.5s ease forwards;
+        }
+        
+        input[type="text"],
+        input[type="email"],
+        input[type="number"],
+        input[type="tel"],
+        textarea {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 15px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            box-sizing: border-box;
+            font-size: 16px;
+        }
+        
+        textarea {
+            height: 100px;
+        }
+        
+        button {
+            background-color: #007bff; /* Blue */
+            color: #fff;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+            transition: background-color 0.3s;
+        }
+        
+        button:hover {
+            background-color: #0056b3; /* Darker blue */
+        }
+        
+        .confirmation {
+            text-align: center;
+            margin-top: 20px;
+            color: #007bff;
+            animation: fadeIn 0.5s ease forwards;
+            display: none;
+        }
+
+        @keyframes slideIn {
+            from {
+                opacity: 0;
+                transform: translateY(-50px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+            to {
+                opacity: 1;
+            }
+        }
+    </style>
+</head>
+<body>
+    <form id="appointmentForm">
+        <h2 style="text-align: center; color: #007bff;">Appointment Form</h2>
+        <label for="name">Name:</label>
+        <input type="text" id="name" placeholder="Name" required><br><br>
+        <label for="email">Email:</label>
+        <input type="email" id="email" placeholder="Email" required><br><br>
+        <label for="number">Mobile No:</label>
+        <input type="tel" id="number" placeholder="Number" required><br><br>
+        <label for="appointment">Appointment Date:</label>
+        <input type="datetime-local" id="appointment" required><br><br>
+        <label for="message">Message:</label>
+        <textarea id="message" placeholder="Type Your Message here" required></textarea>
+        <br><br>
+        <button type="submit">Submit</button>
+    </form>
+
+    <div id="confirmationMessage" class="confirmation"></div>
+
+    <script>
+        document.getElementById("appointmentForm").addEventListener("submit", function(event) {
+            event.preventDefault();
+            var appointmentDate = document.getElementById("appointment").value;
+            var message = "Your appointment has been booked on " + appointmentDate;
+            displayConfirmation(message);
+            document.getElementById("appointmentForm").style.display = "none";
+        });
+
+        function displayConfirmation(message) {
+            var confirmationElement = document.getElementById("confirmationMessage");
+            confirmationElement.textContent = message;
+            confirmationElement.style.display = "block";
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,772 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Healing Hands</title>
+    <link href="https://fonts.googleapis.com/css?family=Heebo:400,500,700|Fira+Sans:600" rel="stylesheet">
+    <link rel="stylesheet" href="dist/css/style.css">
+	<script src="https://unpkg.com/animejs@2.2.0/anime.min.js"></script>
+    <script src="https://unpkg.com/scrollreveal@4.0.0/dist/scrollreveal.min.js"></script>
+	<link rel="icon" type="image/svg+xml" href="dist\favicon.svg">
+
+
+	<style>
+		/* Add hover effect */
+		#feature-link:hover {
+			cursor: pointer;
+			/* background-color: #FED8CD; Change background color on hover */
+		}
+		.input {
+  /* border: 2px solid transparent; */
+  /* width: 15em; */
+  /* height: 2.5em; */
+  /* padding-left: 0.8em; */
+  /* outline: none; */
+  /* overflow: hidden; */
+  background-color: #F3F3F3;
+  border-radius: 20px;
+  transition: all 0.5s;
+}
+.button-block{
+	border-radius: 10px;
+	transition: 0.5s;
+
+}
+.button-block:hover{
+	background-color: #4A9DEC;
+}
+.input:hover,
+.input:focus {
+  border: 2px solid #4A9DEC;
+  box-shadow: 0px 0px 0px 7px rgb(74, 157, 236, 20%);	
+  background-color: white;
+} 
+nav {
+	/* position:fixed;
+	top:0; */
+  background-color: #34bbd9;
+  overflow: hidden;
+}
+
+nav a {
+  float: left;
+  display: block;
+  color: white;
+  text-align: center;
+  padding: 14px 20px;
+  text-decoration: none;
+}
+
+nav a:hover {
+  background-color: #ddd;
+  color: rgb(55, 141, 198);
+}
+
+.login-signup {
+  float: right;
+}
+
+.login-signup a {
+  display: block;
+  color: white;
+  text-align: center;
+  padding: 14px 20px;
+  text-decoration: none;
+}
+.cssbuttons-io-button {
+  background: #ce1414;
+  color: white;
+  font-family: inherit;
+  padding: 0.35em;
+  padding-left: 1.2em;
+  font-size: 17px;
+  font-weight: 500;
+  border-radius: 0.9em;
+  border: none;
+  letter-spacing: 0.05em;
+  display: flex;
+  align-items: center;
+  box-shadow: inset 0 0 1.6em -0.6em #ce1414;
+  overflow: hidden;
+  position: relative;
+  height: 2.8em;
+  padding-right: 3.3em;
+  cursor: pointer;
+}
+
+.cssbuttons-io-button .icon {
+  background: white;
+  margin-left: 1em;
+  position: absolute;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 2.2em;
+  width: 2.2em;
+  border-radius: 0.7em;
+  box-shadow: 0.1em 0.1em 0.6em 0.2em #ce1414;
+  right: 0.3em;
+  transition: all 0.3s;
+}
+
+.cssbuttons-io-button:hover .icon {
+  width: calc(100% - 0.6em);
+}
+
+.cssbuttons-io-button .icon svg {
+  width: 1.1em;
+  transition: transform 0.3s;
+  color: #ce1414;
+}
+
+.cssbuttons-io-button:hover .icon svg {
+  transform: translateX(0.1em);
+}
+
+.cssbuttons-io-button:active .icon {
+  transform: scale(0.95);
+}
+.ball {
+  position: relative;
+  bottom: 50px;
+  
+  /* margin-left: 50px; */
+  left: calc(100% - 20px);
+  width: 50px;
+  height: 50px;
+  background: #37abe9;
+  border-radius: 50%;
+  animation: ball-move8234 3s ease-in-out 1s infinite alternate;
+}
+
+.ball::after {
+	
+	margin-left: 50px;
+  position: absolute;
+  content: '';
+  top: 25px;
+  right: 5px;
+  width: 5px;
+  height: 5px;
+  background: #000;
+  border-radius: 50%;
+}
+
+.bar {
+  width: 200px;
+  height: 12.5px;
+  margin-left: 50px;
+  background: #8112d0;
+  border-radius: 30px;
+  transform: rotate(-15deg);
+  animation: up-down6123 3s ease-in-out 1s infinite alternate;
+}
+
+@keyframes up-down6123 {
+  from {
+    transform: rotate(-15deg);
+  }
+
+  to {
+    transform: rotate(15deg);
+  }
+}
+
+@keyframes ball-move8234 {
+  from {
+    left: calc(100% - 40px);
+    transform: rotate(360deg);
+  }
+
+  to {
+    left: calc(0% - 20px);
+    transform: rotate(0deg);
+  }
+}
+
+.custom-btn {
+  width: 130px;
+  height: 40px;
+  color: #fff;
+  border-radius: 5px;
+  padding: 10px 25px;
+  font-family: 'Lato', sans-serif;
+  font-weight: 500;
+  background: transparent;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  position: relative;
+  display: inline-block;
+  box-shadow: inset 2px 2px 2px 0px rgba(255,255,255,.5),
+   7px 7px 20px 0px rgba(0,0,0,.1),
+   4px 4px 5px 0px rgba(0,0,0,.1);
+  outline: none;
+  font-size: 15px;
+}
+
+.btn-2 {
+  background: #004dff;
+  background: linear-gradient(0deg, #004dff 0%, #004dff 100%);
+  border: none;
+}
+
+.btn-2:before {
+  height: 0%;
+  width: 2px;
+}
+
+.btn-2:hover {
+  box-shadow: 4px 4px 6px 0 rgba(255,255,255,.5),
+              -4px -4px 6px 0 rgba(116, 125, 136, .5), 
+    inset -4px -4px 6px 0 rgba(255,255,255,.2),
+    inset 4px 4px 6px 0 rgba(0, 0, 0, .4);
+}
+
+	</style>
+</head>
+<body class="is-boxed has-animations" style="height: 100%; padding-top:68px ;">
+	<div class="body-wrap boxed-container">
+		
+		<nav style="z-index: 2; position: fixed; top: 0;left: 0; width:100%;">
+			<a href="#home" style="text-decoration: none; color: inherit;">Home</a>
+			<a href="#about" style="text-decoration: none; color: inherit;">About</a>
+			<a href="dist\contact.html" style="text-decoration: none; color: inherit;">Contact</a>
+			<a href="#section-title mt-0" style="text-decoration: none; color: inherit;">Services</a>
+			<div class="login-signup">
+			  <a href="dist\login.html"><button class="custom-btn btn-2">Login</button></a>
+			</div>
+		  </nav>
+        <header class="site-header">
+			<div class="header-shape header-shape-1">
+				<svg width="337" height="222" viewBox="0 0 337 222" xmlns="http://www.w3.org/2000/svg">
+				    <defs>
+				        <linearGradient x1="50%" y1="55.434%" x2="50%" y2="0%" id="header-shape-1">
+				            <stop stop-color="#E0E1FE" stop-opacity="0" offset="0%"></stop>
+				            <stop stop-color="#E0E1FE" offset="100%"></stop>
+				        </linearGradient>
+				    </defs>
+				    <path d="M1103.21 0H1440v400h-400c145.927-118.557 166.997-251.89 63.21-400z" transform="translate(-1103)" fill="url(#header-shape-1)" fill-rule="evenodd"></path>
+				</svg>
+			</div>
+			<div class="header-shape header-shape-2">
+				<svg width="128" height="128" viewBox="0 0 128 128" xmlns="http://www.w3.org/2000/svg" style="overflow:visible">
+				    <defs>
+				        <linearGradient x1="93.05%" y1="19.767%" x2="15.034%" y2="85.765%" id="header-shape-2">
+				            <stop stop-color="#FF3058" offset="0%"></stop>
+				            <stop stop-color="#FF6381" offset="100%"></stop>
+				        </linearGradient>
+				    </defs>
+				    <circle class="anime-element fadeup-animation" cx="64" cy="64" r="64" fill="url(#header-shape-2)" fill-rule="evenodd" style="opacity: 1; transform: translateY(0px);"></circle>
+				</svg>
+			</div>
+            <div class="container">
+                <div class="site-header-inner">
+                    <div class="brand header-brand">
+                        <h1 class="m-0">
+                            <a href="#">
+								<svg width="32" height="32" xmlns="http://www.w3.org/2000/svg">
+									<title>April</title>
+								    <defs>
+								        <linearGradient x1="114.674%" y1="39.507%" x2="-52.998%" y2="39.507%" id="logo-a">
+								            <stop stop-color="#8D92FA" offset="0%"></stop>
+								            <stop stop-color="#8D92FA" stop-opacity="0" offset="100%"></stop>
+								        </linearGradient>
+								        <linearGradient x1="93.05%" y1="19.767%" x2="15.034%" y2="85.765%" id="logo-b">
+								            <stop stop-color="#FF3058" offset="0%"></stop>
+								            <stop stop-color="#FF6381" offset="100%"></stop>
+								        </linearGradient>
+								        <linearGradient x1="32.716%" y1="-20.176%" x2="32.716%" y2="148.747%" id="logo-c">
+								            <stop stop-color="#FF97AA" offset="0%"></stop>
+								            <stop stop-color="#FF97AA" stop-opacity="0" offset="100%"></stop>
+								        </linearGradient>
+								    </defs>
+								    <!-- <g fill="none" fill-rule="evenodd">
+								        <path d="M31.12 7.482C28.327 19.146 19.147 28.326 7.483 31.121A12.04 12.04 0 0 1 .88 24.518C3.674 12.854 12.854 3.674 24.518.879a12.04 12.04 0 0 1 6.603 6.603z" fill="#312ECA"></path>
+								        <path d="M28.874 3.922l-24.91 24.99a12.026 12.026 0 0 1-3.085-4.394C3.674 12.854 12.854 3.674 24.518.879a12.025 12.025 0 0 1 4.356 3.043z" fill="url(#logo-a)"></path>
+								        <g opacity=".88">
+								            <path d="M31.12 24.518a12.04 12.04 0 0 1-6.602 6.603C12.854 28.326 3.674 19.146.879 7.482A12.04 12.04 0 0 1 7.482.88c11.664 2.795 20.844 11.975 23.639 23.639z" fill="url(#logo-b)"></path>
+								            <path d="M24.518 31.12C12.854 28.327 3.674 19.147.879 7.483A12.015 12.015 0 0 1 3.46 3.57L28.47 28.5a12.016 12.016 0 0 1-3.951 2.62z" fill="url(#logo-c)"></path>
+								        </g>
+								    </g> -->
+									<!-- LANDING PAGE TOP LEFT SIDE ICON !!! -->
+								</svg>
+                            </a>
+                        </h1>
+                    </div>
+                </div>
+            </div>
+        </header>
+
+        <main>
+			<div class="bar">
+				<div class="ball"></div>
+			</div>
+            <section class="hero">
+                <div class="container">
+                    <div class="hero-inner">
+						<div class="hero-copy">
+
+	                        <h1 class="hero-title mt-0"><a href="https://www.theodysseyonline.com/healthy-outfit" style="text-decoration: none; color: inherit;">"Healthy is an outfit that looks different on everybody."</a>
+
+							</h1>
+	                        <p class="hero-paragraph">We are here for you!</p>
+							<div class="hero-form field field-grouped">
+								<!-- <div class="control control-expanded">
+									<input class="input" type="email" name="email" placeholder="Login/Signup">
+								</div> -->
+								<!-- <div class="control">
+									<a class="button button-primary button-block" href="#">Submit</a>
+								</div> -->
+								<a href="dist\doctorworkspace.html" style="text-decoration: none; color: inherit;">
+								<button class="cssbuttons-io-button">
+									Get started
+									<div class="icon">
+									  <svg
+										height="24"
+										width="24"
+										viewBox="0 0 24 24"
+										xmlns="http://www.w3.org/2000/svg"
+									  >
+										<path d="M0 0h24v24H0z" fill="none"></path>
+										<path
+										  d="M16.172 11l-5.364-5.364 1.414-1.414L20 12l-7.778 7.778-1.414-1.414L16.172 13H4v-2z"
+										  fill="currentColor"
+										></path>
+									  </svg>
+									</div>
+								  </button>
+								  </a>
+							</div>
+						</div>
+						<div class="hero-illustration">
+							<div class="hero-shape hero-shape-1">
+								<svg width="40" height="40" xmlns="http://www.w3.org/2000/svg" style="overflow:visible">
+									<circle class="anime-element fadeup-animation" cx="20" cy="20" r="20" fill="#FFD8CD" fill-rule="evenodd" style="opacity: 1; transform: translateY(0px);"></circle>
+								</svg>
+							</div>
+							<div class="hero-shape hero-shape-2">
+								<svg width="88" height="88" xmlns="http://www.w3.org/2000/svg" style="overflow:visible">
+								    <circle class="anime-element fadeup-animation" cx="44" cy="44" r="44" fill="#FFD2DA" fill-rule="evenodd" style="opacity: 1; transform: translateY(0px);"></circle>
+								</svg>
+							</div>
+							<div class="hero-main-shape">
+								<svg width="940" height="647" viewBox="0 0 940 647" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" style="overflow:visible">
+									<defs>
+										<linearGradient x1="100%" y1="0%" x2="0%" y2="100%" id="hero-illustration-a">
+											<stop stop-color="#261FB6" offset="0%"></stop>
+											<stop stop-color="#4950F6" offset="100%"></stop>
+										</linearGradient>
+										<linearGradient x1="89.764%" y1="16.809%" x2="11.987%" y2="82.178%" id="hero-illustration-b">
+											<stop stop-color="#FC8464" offset="0%"></stop>
+											<stop stop-color="#FB5C32" offset="100%"></stop>
+										</linearGradient>
+										<linearGradient x1="100%" y1="23.096%" x2="4.439%" y2="96.586%" id="hero-illustration-c">
+											<stop stop-color="#1ADAB7" offset="0%"></stop>
+											<stop stop-color="#55EBD0" offset="100%"></stop>
+										</linearGradient>
+										<filter x="-13%" y="-150%" width="126.1%" height="400%" filterUnits="objectBoundingBox" id="hero-illustration-d">
+											<feGaussianBlur stdDeviation="32" in="SourceGraphic"></feGaussianBlur>
+										</filter>
+										<linearGradient x1="0%" y1="100%" x2="46.694%" y2="42.915%" id="hero-illustration-f">
+											<stop stop-color="#EEF1FA" offset="0%"></stop>
+											<stop stop-color="#FFF" offset="100%"></stop>
+										</linearGradient>
+										<rect id="hero-illustration-e" width="800" height="450" rx="4"></rect>
+										<linearGradient x1="100%" y1="-12.816%" x2="0%" y2="-12.816%" id="hero-illustration-g">
+											<stop stop-color="#D2DAF0" stop-opacity="0" offset="0%"></stop>
+											<stop stop-color="#D2DAF0" offset="50.045%"></stop>
+											<stop stop-color="#D2DAF0" stop-opacity="0" offset="100%"></stop>
+										</linearGradient>
+										<linearGradient x1="116.514%" y1="-21.201%" x2="0%" y2="100%" id="hero-illustration-h">
+											<stop stop-color="#55EBD0" offset="0%"></stop>
+											<stop stop-color="#4950F6" offset="100%"></stop>
+										</linearGradient>
+										<path id="hero-illustration-j" d="M0 0h308v288H0z"></path>
+										<filter x="-15.6%" y="-12.5%" width="139%" height="141.7%" filterUnits="objectBoundingBox" id="hero-illustration-i">
+											<feOffset dx="12" dy="24" in="SourceAlpha" result="shadowOffsetOuter1"></feOffset>
+											<feGaussianBlur stdDeviation="16" in="shadowOffsetOuter1" result="shadowBlurOuter1"></feGaussianBlur>
+											<feColorMatrix values="0 0 0 0 0.0666666667 0 0 0 0 0.062745098 0 0 0 0 0.243137255 0 0 0 0.08 0" in="shadowBlurOuter1"></feColorMatrix>
+										</filter>
+										<circle id="hero-illustration-k" cx="16" cy="16" r="16"></circle>
+										<linearGradient x1="50%" y1="0%" x2="50%" y2="100%" id="hero-illustration-m">
+											<stop stop-color="#C6FDF3" offset="0%"></stop>
+											<stop stop-color="#C6FDF3" stop-opacity="0" offset="100%"></stop>
+										</linearGradient>
+										<linearGradient x1="2.875%" y1="89.028%" x2="99.412%" y2="6.885%" id="hero-illustration-n">
+											<stop stop-color="#83F0DD" offset="0%"></stop>
+											<stop stop-color="#1ADAB7" offset="50.924%"></stop>
+											<stop stop-color="#55EBD0" offset="100%"></stop>
+										</linearGradient>
+										<linearGradient x1="50%" y1="1.569%" x2="50%" y2="97.315%" id="hero-illustration-o">
+											<stop stop-color="#FF97AA" offset="0%"></stop>
+											<stop stop-color="#FF6381" offset="100%"></stop>
+										</linearGradient>
+										<linearGradient x1="50%" y1="0%" x2="50%" y2="100%" id="hero-illustration-p">
+											<stop stop-color="#FCAC96" offset="0%"></stop>
+											<stop stop-color="#FC8464" offset="100%"></stop>
+										</linearGradient>
+										<circle id="hero-illustration-r" cx="28" cy="28" r="28"></circle>
+										<filter x="-85.7%" y="-64.3%" width="314.3%" height="314.3%" filterUnits="objectBoundingBox" id="hero-illustration-q">
+											<feOffset dx="12" dy="24" in="SourceAlpha" result="shadowOffsetOuter1"></feOffset>
+											<feGaussianBlur stdDeviation="16" in="shadowOffsetOuter1" result="shadowBlurOuter1"></feGaussianBlur>
+											<feColorMatrix values="0 0 0 0 0.0666666667 0 0 0 0 0.062745098 0 0 0 0 0.243137255 0 0 0 0.08 0" in="shadowBlurOuter1"></feColorMatrix>
+										</filter>
+										<circle id="hero-illustration-t" cx="36" cy="36" r="36"></circle>
+										<filter x="-66.7%" y="-50%" width="266.7%" height="266.7%" filterUnits="objectBoundingBox" id="hero-illustration-s">
+											<feOffset dx="12" dy="24" in="SourceAlpha" result="shadowOffsetOuter1"></feOffset>
+											<feGaussianBlur stdDeviation="16" in="shadowOffsetOuter1" result="shadowBlurOuter1"></feGaussianBlur>
+											<feColorMatrix values="0 0 0 0 0.0666666667 0 0 0 0 0.062745098 0 0 0 0 0.243137255 0 0 0 0.08 0" in="shadowBlurOuter1"></feColorMatrix>
+										</filter>
+										<circle id="hero-illustration-v" cx="28" cy="28" r="28"></circle>
+										<filter x="-85.7%" y="-64.3%" width="314.3%" height="314.3%" filterUnits="objectBoundingBox" id="hero-illustration-u">
+											<feOffset dx="12" dy="24" in="SourceAlpha" result="shadowOffsetOuter1"></feOffset>
+											<feGaussianBlur stdDeviation="16" in="shadowOffsetOuter1" result="shadowBlurOuter1"></feGaussianBlur>
+											<feColorMatrix values="0 0 0 0 0.0666666667 0 0 0 0 0.062745098 0 0 0 0 0.243137255 0 0 0 0.08 0" in="shadowBlurOuter1"></feColorMatrix>
+										</filter>
+										<circle id="hero-illustration-x" cx="24" cy="24" r="24"></circle>
+										<filter x="-100%" y="-75%" width="350%" height="350%" filterUnits="objectBoundingBox" id="hero-illustration-w">
+											<feOffset dx="12" dy="24" in="SourceAlpha" result="shadowOffsetOuter1"></feOffset>
+											<feGaussianBlur stdDeviation="16" in="shadowOffsetOuter1" result="shadowBlurOuter1"></feGaussianBlur>
+											<feColorMatrix values="0 0 0 0 0.0666666667 0 0 0 0 0.062745098 0 0 0 0 0.243137255 0 0 0 0.08 0" in="shadowBlurOuter1"></feColorMatrix>
+										</filter>
+									</defs>
+									<g fill="none" fill-rule="evenodd">
+										<path class="anime-element stroke-animation" d="M600,300 C600,465.685425 465.685425,600 300,600 C134.314575,600 1.3749042e-14,465.685425 3.60373576e-15,300 C-6.54157051e-15,134.314575 134.314575,-1.29473326e-14 300,-2.30926389e-14 C465.685425,-3.32379452e-14 600,134.314575 600,300 Z" fill="url(#hero-illustration-a)" stroke="#4950F6" stroke-dasharray="1885.221435546875" stroke-dashoffset="1885.221435546875" style="stroke-dashoffset: 0px; stroke-width: 2px; stroke-opacity: 0; fill-opacity: 1;"></path>
+										<g transform="translate(435 518)">
+											<circle class="anime-element fadeup-animation" fill="url(#hero-illustration-b)" cx="106" cy="32" r="32" style="opacity: 1; transform: translateY(0px);"></circle>
+											<circle class="anime-element fadeup-animation" fill="url(#hero-illustration-c)" cx="12" cy="117" r="12" style="opacity: 1; transform: translateY(0px);"></circle>
+										</g>
+										<g class="anime-element fadeleft-animation" style="opacity: 1; transform: translateX(0px);">
+											<g transform="translate(103 75)">
+												<path fill-opacity=".24" fill="#11103E" filter="url(#hero-illustration-d)" d="M32 410h736v64H32z"></path>
+												<a href="https://www.youtube.com/watch?v=iwbCmKqwO1U"><image xlink:href="dist\images\helping-hands.jpg" width="500px" height="500px" />
+												</a>
+											</g>
+											
+											
+											
+										</g>
+										
+										
+									</g>
+								</svg>
+							</div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section class="features section">
+                <div class="container">
+                    <div class="features-inner section-inner">
+                        <div class="features-header text-center">
+                            <div class="container-sm">
+                                <h2 class="section-title mt-0">Dive deep</h2>
+                                <p class="section-paragraph">This is a safe space for you!</p>
+                            </div>
+                        </div>
+
+						<div class="features-wrap">
+							<div class="feature text-center is-revealing" style="visibility: visible;">
+								<a href="dist\appointment.html" style="text-decoration: none; color: inherit;">
+                                <div class="feature-inner" id="feature-link">
+									<div class="feature-icon" style="background:#FFD8CD;">
+										<!-- <img src="dist\images\appointment.png" alt="Testimonial"> -->
+										<img src="dist\images\appointment.png" alt="Image Description" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;border-radius: 50%; z-index: 1;">
+									</div>
+									<h4 class="feature-title h3-mobile mb-8">Book an appointment</h4>
+									<p class="text-sm">Streamline scheduling: Book appointments hassle-free.</p>
+								</div></a>
+							
+                            </div>
+
+
+							<!-- <a href="dist\doctorworkspace.html"> -->
+								<div class="feature text-center is-revealing" style="visibility: visible;">
+									<a href="dist\doctorworkspace.html" style="text-decoration: none; color: inherit;">
+										<div class="feature-inner">
+											<div class="feature-icon" style="background:#FFD8CD;">
+												<img src="dist\images\doctor.png" alt="Image Description" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;border-radius: 50%; z-index: 1;">
+											</div>
+											<h4 class="feature-title h3-mobile mb-8" style="color: inherit;">Doctor's Workspace</h4>
+											<p class="text-sm" style="color: inherit;">Doctor's hub: Organize appointments, patient records, and treatment plans efficiently.</p>
+										</div>
+									</a>
+								</div>
+								
+							<!-- </a> -->
+
+
+							<!-- <a href="dist\doctorworkspace.html" style="text-decoration: none; color: inherit;"> -->
+								<div class="feature text-center is-revealing" style="visibility: visible;">
+									<a href="dist\department.html" style="text-decoration: none; color: inherit;">
+                                <div class="feature-inner">
+                                    <div class="feature-icon" style="background:#C6FDF3;">
+										<img src="dist\images\department.png" alt="Image Description" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;border-radius: 50%; z-index: 1;">
+                                    </div>
+                                    <h4 class="feature-title h3-mobile mb-8">Departments</h4>
+                                    <p class="text-sm">Explore our diverse hospital departments, each dedicated to specialized care and expertise, ensuring comprehensive healthcare tailored to your needs.</p>
+                                </div>
+
+								</a>
+                            </div>
+							<!-- </a> -->
+
+
+
+							<div class="feature text-center is-revealing" style="visibility: visible;">
+								<a href="https://blog.google/technology/health/" style="text-decoration: none; color: inherit;">
+                                <div class="feature-inner">
+                                    <div class="feature-icon" style="background:#E0E1FE;">
+										<img src="dist\images\blog.png" alt="Image Description" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;border-radius: 50%; z-index: 1;">
+
+                                    </div>
+                                    <h4 class="feature-title h3-mobile mb-8">Blogs</h4>
+                                    <p class="text-sm">Stay informed with our latest updates and insights in healthcare technology. Explore our blog for thought-provoking articles, innovative solutions, and industry trends shaping the future of healthcare.</p>
+                                </div></a>
+                            </div>
+
+
+						</div>
+                    </div>
+                </div>
+            </section>
+
+			<section class="testimonials section">
+				<div class="testimonials-shape testimonials-shape-1">
+					<svg width="280" height="280" viewBox="0 0 280 280" xmlns="http://www.w3.org/2000/svg">
+					    <defs>
+					        <linearGradient x1="100%" y1="0%" x2="0%" y2="100%" id="testimonials-shape-1">
+					            <stop stop-color="#261FB6" offset="0%"></stop>
+					            <stop stop-color="#4950F6" offset="100%"></stop>
+					        </linearGradient>
+					    </defs>
+					    <circle cx="140" cy="685" r="140" transform="translate(0 -545)" fill="url(#testimonials-shape-1)" fill-rule="evenodd"></circle>
+					</svg>
+				</div>
+				<div class="testimonials-shape testimonials-shape-2">
+					<svg width="125" height="107" viewBox="0 0 125 107" xmlns="http://www.w3.org/2000/svg">
+						<g fill="none" fill-rule="evenodd">
+							<circle fill="#C6FDF3" cx="48" cy="59" r="48"></circle>
+							<path d="M58.536 39.713c0-6.884 1.72-14.007 5.163-21.368 3.443-7.36 8.167-13.458 14.173-18.292l11.645 7.91c-3.589 4.98-6.262 10.016-8.02 15.106S78.86 33.598 78.86 39.384v13.623H58.536V39.713z" fill="#55EBD0"></path>
+							<path d="M93.252 39.713c0-6.884 1.722-14.007 5.164-21.368 3.442-7.36 8.166-13.458 14.172-18.292l11.646 7.91c-3.589 4.98-6.262 10.016-8.02 15.106s-2.637 10.529-2.637 16.315v13.623H93.252V39.713z" fill="#1ADAB7"></path>
+						</g>
+					</svg>
+				</div>
+				<div class="testimonials-shape testimonials-shape-3">
+					<svg width="48" height="48" viewBox="0 0 48 48" mlns="http://www.w3.org/2000/svg">
+						<defs>
+							<linearGradient x1="93.05%" y1="19.767%" x2="15.034%" y2="85.765%" id="testimonials-shape-3">
+								<stop stop-color="#FF3058" offset="0%"></stop>
+								<stop stop-color="#FF6381" offset="100%"></stop>
+							</linearGradient>
+						</defs>
+						<circle cx="24" cy="434" r="24" transform="translate(0 -410)" fill="url(#testimonials-shape-3)" fill-rule="evenodd"></circle>
+					</svg>
+				</div>
+				<div class="container">
+					<div class="testimonials-inner section-inner">
+						<h2 class="section-title mt-0 text-center">Testimonials</h2>
+						<div class="testimonials-wrap">
+							<div class="testimonial text-xs is-revealing" style="visibility: visible;">
+								<div class="testimonial-inner">
+									<div class="testimonial-main">
+										<div class="testimonial-header">
+											<img class="mb-16" src="dist/images/testimonial-01.png" alt="Testimonial">
+										</div>
+										<div class="testimonial-body">
+											<p class="mb-0">Welcome! Offering compassionate care tailored just for you. Let's begin your journey to wellness together!</p>
+											<a href="https://www.linkedin.com/in/shyam2911/" style="text-decoration: none; ">@Shyam Sunder</a>
+										</div>
+									</div>
+									<!--<div class="testimonial-footer">
+										<div class="testimonial-link">
+											<a href="#">@martajones</a>
+										</div>
+									</div>-->
+								</div>
+							</div>
+							<div class="testimonial text-xs is-revealing" style="visibility: visible;">
+								<div class="testimonial-inner">
+									<div class="testimonial-main">
+										<div class="testimonial-header">
+											<img class="mb-16" src="dist/images/testimonial-02.png" alt="Testimonial">
+										</div>
+										<div class="testimonial-body">
+											<p class="mb-0">Guiding patients towards vibrant health with expertise, empathy, and a commitment to personalized care.</p>
+											<a href="https://www.linkedin.com/in/omgupta27/" style="text-decoration: none; ">@Om Gupta</a>
+										</div>
+									</div>
+									<!-- <div class="testimonial-footer">
+										<div class="testimonial-link">
+											<a href="#">@michealpahm</a>
+										</div>
+									</div> -->
+								</div>
+							</div>
+							<div class="testimonial text-xs is-revealing" style="visibility: visible;">
+								<div class="testimonial-inner">
+									<div class="testimonial-main">
+										<div class="testimonial-header">
+											<img class="mb-16" src="dist/images/testimonial-03.png" alt="Testimonial">
+										</div>
+										<div class="testimonial-body">
+											<p class="mb-0">Empowering patients with knowledge, compassion, and a dedication to holistic healing.</p>
+										    <a href="https://www.linkedin.com/in/pranavi-reddy-040455226/" style="text-decoration: none; ">@Pranavi</a>
+										</div>
+									</div>
+									<!---<div class="testimonial-footer">
+										<div class="testimonial-link">
+											<a href="#">@markbrown</a>
+										</div>
+									</div>-->
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</section>
+
+			<section class="newsletter section text-light">
+                <div class="container-sm">
+                    <div class="newsletter-inner section-inner">
+                        <div class="newsletter-header text-center">
+                            <h2 class="section-title mt-0">Connect with us</h2>
+                            <p class="section-paragraph">Stay connected with us for the latest updates, health tips, and personalized care. Let's journey towards wellness together!</p>
+                        </div>
+                        <div class="footer-form newsletter-form field field-grouped">
+                            <div class="control control-expanded">
+                                <input class="input" type="email" name="email" placeholder="Your best email…">
+                            </div>
+                            <div class="control">
+                                <a class="button button-primary button-block button-shadow" href="#">Get Updates</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </main>
+
+        <footer class="site-footer">
+            <div class="container">
+                <div class="site-footer-inner has-top-divider">
+                    <div class="brand footer-brand">
+                        <a href="#">
+							<svg width="32" height="32" xmlns="http://www.w3.org/2000/svg">
+								<title>April</title>
+								<defs>
+									<linearGradient x1="114.674%" y1="39.507%" x2="-52.998%" y2="39.507%" id="logo-footer-a">
+										<stop stop-color="#8D92FA" offset="0%"></stop>
+										<stop stop-color="#8D92FA" stop-opacity="0" offset="100%"></stop>
+									</linearGradient>
+									<linearGradient x1="93.05%" y1="19.767%" x2="15.034%" y2="85.765%" id="logo-footer-b">
+										<stop stop-color="#FF3058" offset="0%"></stop>
+										<stop stop-color="#FF6381" offset="100%"></stop>
+									</linearGradient>
+									<linearGradient x1="32.716%" y1="-20.176%" x2="32.716%" y2="148.747%" id="logo-footer-c">
+										<stop stop-color="#FF97AA" offset="0%"></stop>
+										<stop stop-color="#FF97AA" stop-opacity="0" offset="100%"></stop>
+									</linearGradient>
+								</defs>
+								<g fill="none" fill-rule="evenodd">
+									<path d="M31.12 7.482C28.327 19.146 19.147 28.326 7.483 31.121A12.04 12.04 0 0 1 .88 24.518C3.674 12.854 12.854 3.674 24.518.879a12.04 12.04 0 0 1 6.603 6.603z" fill="#312ECA"></path>
+									<path d="M28.874 3.922l-24.91 24.99a12.026 12.026 0 0 1-3.085-4.394C3.674 12.854 12.854 3.674 24.518.879a12.025 12.025 0 0 1 4.356 3.043z" fill="url(#logo-footer-a)"></path>
+									<g opacity=".88">
+										<path d="M31.12 24.518a12.04 12.04 0 0 1-6.602 6.603C12.854 28.326 3.674 19.146.879 7.482A12.04 12.04 0 0 1 7.482.88c11.664 2.795 20.844 11.975 23.639 23.639z" fill="url(#logo-footer-b)"></path>
+										<path d="M24.518 31.12C12.854 28.327 3.674 19.147.879 7.483A12.015 12.015 0 0 1 3.46 3.57L28.47 28.5a12.016 12.016 0 0 1-3.951 2.62z" fill="url(#logo-footer-c)"></path>
+									</g>
+								</g>
+							</svg>
+                        </a>
+                    </div>
+                    <ul class="footer-links list-reset">
+                        <li>
+                            <a href="#">Contact</a>
+                        </li>
+                        <li>
+                            <a href="#">About us</a>
+                        </li>
+                        <li>
+                            <a href="#">FAQ's</a>
+                        </li>
+                        <li>
+                            <a href="#">Support</a>
+                        </li>
+                    </ul>
+                    <ul class="footer-social-links list-reset">
+                        <li>
+                            <a href="#">
+                                <span class="screen-reader-text">Facebook</span>
+                                <svg width="16" height="16" xmlns="http://www.w3.org/2000/svg">
+                                    <path d="M6.023 16L6 9H3V6h3V4c0-2.7 1.672-4 4.08-4 1.153 0 2.144.086 2.433.124v2.821h-1.67c-1.31 0-1.563.623-1.563 1.536V6H13l-1 3H9.28v7H6.023z" fill="#FFF"></path>
+                                </svg>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#">
+                                <span class="screen-reader-text">Twitter</span>
+                                <svg width="16" height="16" xmlns="http://www.w3.org/2000/svg">
+                                    <path d="M16 3c-.6.3-1.2.4-1.9.5.7-.4 1.2-1 1.4-1.8-.6.4-1.3.6-2.1.8-.6-.6-1.5-1-2.4-1-1.7 0-3.2 1.5-3.2 3.3 0 .3 0 .5.1.7-2.7-.1-5.2-1.4-6.8-3.4-.3.5-.4 1-.4 1.7 0 1.1.6 2.1 1.5 2.7-.5 0-1-.2-1.5-.4C.7 7.7 1.8 9 3.3 9.3c-.3.1-.6.1-.9.1-.2 0-.4 0-.6-.1.4 1.3 1.6 2.3 3.1 2.3-1.1.9-2.5 1.4-4.1 1.4H0c1.5.9 3.2 1.5 5 1.5 6 0 9.3-5 9.3-9.3v-.4C15 4.3 15.6 3.7 16 3z" fill="#FFF"></path>
+                                </svg>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#">
+                                <span class="screen-reader-text">Google</span>
+                                <svg width="16" height="16" xmlns="http://www.w3.org/2000/svg">
+                                    <path d="M7.9 7v2.4H12c-.2 1-1.2 3-4 3-2.4 0-4.3-2-4.3-4.4 0-2.4 2-4.4 4.3-4.4 1.4 0 2.3.6 2.8 1.1l1.9-1.8C11.5 1.7 9.9 1 8 1 4.1 1 1 4.1 1 8s3.1 7 7 7c4 0 6.7-2.8 6.7-6.8 0-.5 0-.8-.1-1.2H7.9z" fill="#FFF"></path>
+                                </svg>
+                            </a>
+                        </li>
+                    </ul>
+                    <div class="footer-copyright">© 2024 March, all rights reserved</div>
+                </div>
+            </div>
+        </footer>
+    </div>
+
+    <script src="dist/js/main.min.js"></script>
+<!-- Code injected by live-server -->
+<script>
+	// <![CDATA[  <-- For SVG support
+	if ('WebSocket' in window) {
+		(function () {
+			function refreshCSS() {
+				var sheets = [].slice.call(document.getElementsByTagName("link"));
+				var head = document.getElementsByTagName("head")[0];
+				for (var i = 0; i < sheets.length; ++i) {
+					var elem = sheets[i];
+					var parent = elem.parentElement || head;
+					parent.removeChild(elem);
+					var rel = elem.rel;
+					if (elem.href && typeof rel != "string" || rel.length == 0 || rel.toLowerCase() == "stylesheet") {
+						var url = elem.href.replace(/(&|\?)_cacheOverride=\d+/, '');
+						elem.href = url + (url.indexOf('?') >= 0 ? '&' : '?') + '_cacheOverride=' + (new Date().valueOf());
+					}
+					parent.appendChild(elem);
+				}
+			}
+			var protocol = window.location.protocol === 'http:' ? 'ws://' : 'wss://';
+			var address = protocol + window.location.host + window.location.pathname + '/ws';
+			var socket = new WebSocket(address);
+			socket.onmessage = function (msg) {
+				if (msg.data == 'reload') window.location.reload();
+				else if (msg.data == 'refreshcss') refreshCSS();
+			};
+			if (sessionStorage && !sessionStorage.getItem('IsThisFirstTime_Log_From_LiveServer')) {
+				console.log('Live reload enabled.');
+				sessionStorage.setItem('IsThisFirstTime_Log_From_LiveServer', true);
+			}
+		})();
+	}
+	else {
+		console.error('Upgrade your browser. This Browser is NOT supported WebSocket for Live-Reloading.');
+	}
+	// ]]>
+</script>
+
+
+</body>
+</html>

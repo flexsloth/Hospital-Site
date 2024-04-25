@@ -1,0 +1,46 @@
+body {
+    font-family: 'Noto Sans', sans-serif;
+    margin: 0;
+    padding: 0;
+     background-color: #f0f5f9; 
+     background-image: url('medicalbgimg.png'); 
+ background-size: cover;  
+ background-repeat: repeat;  
+    
+}
+
+.container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 10px;
+    padding: 20px;
+}
+
+.image {
+    width: 130px;
+    height: auto;
+    border-style : solid;
+    border-width: 5px;
+    border-color: black;
+}
+
+.image-container {
+    flex: 1 0 33.33%; /* Two images per row */
+    text-align: center;
+}
+
+.image-container:nth-child(odd) {
+    flex: 1 0 33.33%; /* Three images per row */
+}
+
+.image-container a {
+    display: block;
+    text-decoration: none;
+    color: #333;
+    margin-top: 10px;
+}
+
+.image-container a:hover {
+    color: #007bff;
+}

@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Doctor's Workspace</title>
+<style>
+  body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-color: #f2f2f2;
+  }
+  .form-container {
+    background-color: #ffffff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  }
+  .form-container h2 {
+    text-align: center;
+  }
+  .form-container input[type="text"] {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+  }
+  .form-container input[type="submit"] {
+    width: 100%;
+    background-color: #4796c8;
+    color: white;
+    padding: 14px 20px;
+    margin: 8px 0;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+  }
+  .form-container input[type="submit"]:hover {
+    background-color: #45a049;
+  }
+  .loader {
+    margin-right: 200px;
+  position: relative;
+  width: 300px;
+  height: 300px;
+  transform-style: preserve-3d;
+  transform: perspective(500px) rotateX(60deg);
+}
+
+.loader span {
+  position: absolute;
+  display: block;
+  border: 5px solid #fff;
+  box-shadow: 0 5px 0 #ccc;
+  inset: 0 5px 0 #ccc;
+  box-sizing: border-box;
+  border-radius: 50%;
+  animation: animate 3s ease-in-out infinite;
+}
+
+@keyframes animate {
+  0%,100% {
+    transform: translateZ(-100px);
+  }
+
+  50% {
+    transform: translateZ(100px);
+  }
+}
+
+.loader span:nth-child(1) {
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  animation-delay: 1.4s;
+}
+
+.loader span:nth-child(2) {
+  top: 10px;
+  left: 10px;
+  bottom: 10px;
+  right: 10px;
+  animation-delay: 1.3s;
+}
+
+.loader span:nth-child(3) {
+  top: 20px;
+  left: 20px;
+  bottom: 20px;
+  right: 20px;
+  animation-delay: 1.2s;
+}
+
+.loader span:nth-child(4) {
+  top: 30px;
+  left: 30px;
+  bottom: 30px;
+  right: 30px;
+  animation-delay: 1.1s;
+}
+
+.loader span:nth-child(5) {
+  top: 40px;
+  left: 40px;
+  bottom: 40px;
+  right: 40px;
+  animation-delay: 1s;
+}
+
+.loader span:nth-child(6) {
+  top: 50px;
+  left: 50px;
+  bottom: 50px;
+  right: 50px;
+  animation-delay: 0.9s;
+}
+
+.loader span:nth-child(7) {
+  top: 60px;
+  left: 60px;
+  bottom: 60px;
+  right: 60px;
+  animation-delay: 0.8s;
+}
+
+.loader span:nth-child(8) {
+  top: 70px;
+  left: 70px;
+  bottom: 70px;
+  right: 70px;
+  animation-delay: 0.7s;
+}
+
+.loader span:nth-child(9) {
+  top: 80px;
+  left: 80px;
+  bottom: 80px;
+  right: 80px;
+  animation-delay: 0.6s;
+}
+
+.loader span:nth-child(10) {
+  top: 90px;
+  left: 90px;
+  bottom: 90px;
+  right: 90px;
+  animation-delay: 0.5s;
+}
+
+.loader span:nth-child(11) {
+  top: 100px;
+  left: 100px;
+  bottom: 100px;
+  right: 100px;
+  animation-delay: 0.4s;
+}
+
+.loader span:nth-child(12) {
+  top: 110px;
+  left: 110px;
+  bottom: 110px;
+  right: 110px;
+  animation-delay: 0.3s;
+}
+
+.loader span:nth-child(13) {
+  top: 120px;
+  left: 120px;
+  bottom: 120px;
+  right: 120px;
+  animation-delay: 0.2s;
+}
+
+.loader span:nth-child(14) {
+  top: 130px;
+  left: 130px;
+  bottom: 130px;
+  right: 130px;
+  animation-delay: 0.1s;
+}
+
+.loader span:nth-child(15) {
+  top: 140px;
+  left: 140px;
+  bottom: 140px;
+  right: 140px;
+  animation-delay: 0s;
+}
+</style>
+</head>
+<body>
+  <div class="loader">
+    <span></span>
+    <span></span>
+    <span></span>
+    <span></span>
+    <span></span>
+    <span></span>
+    <span></span>
+    <span></span>
+    <span></span>
+    <span></span>
+    <span></span>
+    <span></span>
+    <span></span>
+    <span></span>
+    <span></span>
+</div>
+
+<div class="form-container">
+  <h2>Doctor's Workspace</h2>
+  <form action="/retrieve" method="post" onsubmit="return validateForm()">
+    <label for="userid">Patient's User ID (4 digits)</label>
+    <input type="text" id="userid" name="userid" required>
+    <input type="submit" value="Retrieve">
+    <p id="validation-message"></p> <!-- Paragraph element to display validation result -->
+  </form>
+</div>
+<script>
+  const validUserIds = [1230, 1231, 1232, 1233, 1234, 1235, 1236, 1237, 1238, 1239,1240];
+
+  function validateForm() {
+    // Get the input element
+    var userIdInput = document.getElementById("userid");
+    var validationMessage = document.getElementById("validation-message");
+    
+    // Get the value from the input element
+    var userId = userIdInput.value;
+    
+    // Check if the value is empty or not exactly 4 digits
+    if (userId === "" || !(/^\d{4}$/.test(userId))) {
+      // Display an error message
+      validationMessage.innerHTML = "Please enter a 4-digit User ID.";
+      validationMessage.style.backgroundColor = "#ffcccc";
+      
+      // Prevent form submission
+      return false;
+    }
+    
+    // Check if the entered ID is in the array of valid IDs
+    if (validUserIds.includes(parseInt(userId))) {
+      // If valid, display a message indicating a valid doctor
+      validationMessage.innerHTML = "Valid doctor!";
+      validationMessage.style.backgroundColor = "#c6ffb3";
+      return;
+    } else {
+      // If not valid, display a message and prompt user to fill the form again
+      validationMessage.innerHTML = "Invalid doctor! Please fill the form again.";
+      validationMessage.style.backgroundColor = "#ffcccc";
+      
+      // Prevent form submission
+      return false;
+    }
+    
+    // Form is valid, allow submission
+    return true;
+  }
+</script>
+
+
+</body>
+</html>
